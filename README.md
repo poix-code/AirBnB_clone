@@ -6,14 +6,14 @@
 
 <h4>A command interpreter to manage our Airbnb clone objects:</h4>
 
-<p>Create a new object (ex: a new User or a new Place)
+Create a new object (ex: a new User or a new Place)
 Retrieve an object from a file, a database etc…
 Do operations on objects (count, compute stats, etc…)
 Update attributes of an object
 Destroy an object
 Example 1 | help command in interactive mode
 emacs:AirBnB_clone$ ./console.py
-(hbnb) help</p>
+(hbnb) help
 
 Documented commands (type help <topic>):
 ========================================
@@ -36,7 +36,7 @@ EOF  all  create  destroy  help  quit  show  update
 
 (hbnb) vagrant:AirBnB_cat test_helpsole.py
 help
-vagrant:AirBnB_clone$ cat test_help | ./console.py
+emacs:AirBnB_clone$ cat test_help | ./console.py
 (hbnb)
 Documented commands (type help <topic>):
 ========================================
