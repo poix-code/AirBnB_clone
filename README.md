@@ -14,6 +14,7 @@
 <li>Destroy an object</li>
 </ul>
 <h5>Example 1 | help command in interactive mode</h5>
+
 <pre>
 <code>
 "emacs:AirBnB_clone$ ./console.py
@@ -29,6 +30,8 @@ Prints a string representation of all instances, can include class
         Usage: all <class name>
 
 (hbnb)
+
+
 "
 </code>
 </pre>
