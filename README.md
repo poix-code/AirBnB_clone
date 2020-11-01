@@ -148,8 +148,9 @@ EOF  all  create  destroy  help  quit  show  update
 </tr>
 </body>
 </table>
-<hr>AUTHORS</h3>
-<p>Juan Uribe 1966@holbertonschool.com</p>
+<hr>
+<h3>AUTHORS</h3>
+<p>Juan Uribe 1996@holbertonschool.com</p>
 <p>Hector Orozco 2066@holbertonschool.com</p>
 <br>
 <hr>
