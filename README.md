@@ -4,7 +4,7 @@
 <h3>Description</h3>
 <h4>This is the first step towards building our first full web application: the AirBnB clone.</h4>
 
-<h4>A command interpreter to manage our Airbnb clone objects:</h4>
+A command interpreter to manage our Airbnb clone objects:
 
 Create a new object (ex: a new User or a new Place)
 Retrieve an object from a file, a database etc…
@@ -34,7 +34,7 @@ Documented commands (type help <topic>):
 ========================================
 EOF  all  create  destroy  help  quit  show  update
 
-(hbnb) vagrant:AirBnB_cat test_helpsole.py
+(hbnb) emacs:AirBnB_cat test_helpsole.py
 help
 emacs:AirBnB_clone$ cat test_help | ./console.py
 (hbnb)
