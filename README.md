@@ -1,8 +1,8 @@
-<h1>0x00. AirBnB clone - The console</h1>
-<br>
-<hr>
-<h3>Description</h3>
-<h4>This is the first step towards building our first full web application: the AirBnB clone.</h4>
+0x00. AirBnB clone - The console
+
+
+Description
+This is the first step towards building our first full web application: the AirBnB clone.
 
 A command interpreter to manage our Airbnb clone objects:
 
@@ -79,5 +79,3 @@ AUTHORS Juan Uribe <1996@holbertonschool.com>
 README.md read me file
 
 TESTS unittest.
-<br>
-<hr>
