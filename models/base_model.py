@@ -7,11 +7,21 @@ import json
 
 class BaseModel():
     """The instances and methods of the class are defined"""
-    def __init__(self):
+    def __init__(self, name=None, my_number=None, *args, **kwargs):
         """Public instance attributes"""
-        self.id = str(uuid.uuid4())
-        self.created_at = datetime.now()
-        self.updated_at = datetime.now()
+        if not kwargs:
+            self.id = str(uuid.uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
+        else:
+            for i in kwargs:
+                if i == '__class__':
+                    continue
+                if i in ('updated_at', 'created_at'):
+                    dt = datetime.strptime(kwargs[i], '%Y-%m-%dT%H:%M:%S.%f')
+                    self.__dict__[i] = dt
+                else:
+                    self.__dict__[i] = kwargs[i]
 
     def __str__(self):
         """Print the instances with the magic method __str__"""
