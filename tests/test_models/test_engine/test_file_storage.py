@@ -34,7 +34,7 @@ class TestFileStorage(unittest.TestCase):
         '''
         self.storage.new(self.my_model)
         new_dict = self.storage.all()
-        key = self.my_model.__class__.__name__ + '.' + self.my_model.id
+        ob_k = type(obj).__name__ + '.' + obj.id
         self.assertIsInstance(new_dict[key], BaseModel)
 
     def test_all(self):
