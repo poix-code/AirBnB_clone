@@ -3,37 +3,36 @@
  deserializes JSON file to instances"""
 from models.base_model import BaseModel
 import json
-from datetime import datetime
 
 
-class FileStorage():
+class FileStorage:
     """Represents a class FileStorage"""
     __file_path = 'file.json'
     __objects = {}
 
     def all(self):
         """Returns a dictionary"""
-        return self.__objects
+        return type(self).__objects
 
     def new(self, obj):
         """Sets the obj in a key <obj class name>.id"""
-        ob_k = "{}.{}".format(obj.__class__.__name__, obj.id)
-        self.__objects[ob_k] = obj
+        ob_k = type(obj).__name__ + '.' + obj.id
+        type(self).__objects[ob_k] = obj
 
     def save(self):
         """Serializes __objects to the JSON file (path: __file_path)"""
         new_dict = {}
-        for key, value in self.__objects.items():
+        for key, value in type(self).__objects.items():
             new_dict[key] = value.to_dict()
-            with open(FileStorage.__file_path, "w", encoding='utf-8') as fd:
-                json.dump(new_dict, fd)
+        with open(type(self).__file_path, "w") as fd:
+            json.dump(new_dict, fd)
 
     def reload(self):
         """Deserializes the JSON file to __objects"""
         try:
-            with open(self.__file_path, "r", encoding='utf-8') as read_file:
+            with open(type(self).__file_path, "r") as read_file:
                 for key, value in (json.load(read_file)).items():
                     value = eval((value["__class__"]) + "(**value)")
-                    self.__objects[key] = value
+                    type(self).__objects[key] = value
         except FileNotFoundError:
             pass
