@@ -6,27 +6,27 @@ import json
 from datetime import datetime
 
 
-class FileStorage:
+class FileStorage():
     """Represents a class FileStorage"""
-    __file_path = "file.json"
+    __file_path = 'file.json'
     __objects = {}
 
     def all(self):
         """Returns a dictionary"""
-        return type(self).__objects
+        return self.__objects
 
     def new(self, obj):
         """Sets the obj in a key <obj class name>.id"""
         ob_k = obj.__class__.__name__ + '.' + str(obj.id)
-        self.__objects[ob_k] = obj
+        FileStorage.__objects[ob_k] = obj
 
     def save(self):
         """Serializes __objects to the JSON file (path: __file_path)"""
         new_dict = {}
-        for key, value in self.__objects.items():
+        for key, value in FileStorage.__objects.items():
             new_dict[key] = value.to_dict()
-            with open(self.__file_path, "w", encoding='utf-8') as write_file:
-                json.dump(new_dict, write_file)
+            with open(FileStorage.__file_path, "w", encoding='utf-8') as fd:
+                json.dump(new_dict, fd)
 
     def reload(self):
         """Deserializes the JSON file to __objects"""

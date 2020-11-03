@@ -37,7 +37,8 @@ class BaseModel:
         string representation of BaseModel instance
         '''
         return "[{}] ({}) {}".format(self.__class__.__name__,
-                                     self.id, self.__dict__)
+                                     self.id,
+                                     self.__dict__)
 
     def save(self):
         '''
@@ -50,7 +51,7 @@ class BaseModel:
         '''
         dictionary representation of an instance
         '''
-        new_dict = dict(self.__dict__)
+        new_dict = self.__dict__.copy()
         new_dict['created_at'] = self.__dict__['created_at'].isoformat()
         new_dict['updated_at'] = self.__dict__['updated_at'].isoformat()
         new_dict['__class__'] = self.__class__.__name__
