@@ -2,6 +2,7 @@
 """The base class and import modules are defined"""
 import json
 from models.base_model import BaseModel
+from datetime import datetime
 
 
 class FileStorage():
