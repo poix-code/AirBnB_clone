@@ -3,6 +3,10 @@
 import json
 from models.base_model import BaseModel
 from datetime import datetime
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6370b03406e9cc0dd6dad666eda814cc871ac9f0
 
 class FileStorage():
     """The instances and methods of the class are defined"""
