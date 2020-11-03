@@ -24,12 +24,12 @@ class BaseModel:
         else:
             for key in kwargs:
                 if key != '__class__':
-                    pass
-                if key in ('created_at', 'updated_at'):
-                    d = datetime.strptime(kwargs[key], '%Y-%m-%dT%H:%M:%S.%f')
-                    self.__dict__[key] = d
-                else:
-                    self.__dict__[key] = kwargs[key]
+                    if key in ('created_at', 'updated_at'):
+                        d = datetime.strptime(kwargs[key],
+                                              '%Y-%m-%dT%H:%M:%S.%f')
+                        self.__dict__[key] = d
+                    else:
+                        self.__dict__[key] = kwargs[key]
 
     def __str__(self):
         '''
