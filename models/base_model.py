@@ -2,10 +2,8 @@
 '''
 module 'base_model'
 '''
-
 import uuid
 from datetime import datetime
-
 import models
 
 
@@ -18,19 +16,20 @@ class BaseModel:
         '''
         class constructor for class 'BaseModel'
         '''
-        if kwargs:
-            kwargs['created_at'] = datetime.strptime(kwargs['created_at'],
-                                                     '%Y-%m-%dT%H:%M:%S.%f')
-            kwargs['updated_at'] = datetime.strptime(kwargs['updated_at'],
-                                                     '%Y-%m-%dT%H:%M:%S.%f')
-            for key, value in kwargs.items():
-                if key != '__class__':
-                    setattr(self, key, value)
-        else:
+        if not kwargs:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
             models.storage.new(self)
+        else:
+            for key in kwargs:
+                if key != '__class__':
+                    pass
+                if key in ('created_at', 'updated_at'):
+                    d = datetime.strptime(kwargs[key], '%Y-%m-%dT%H:%M:%S.%f')
+                    self.__dict__[key] = d
+                else:
+                    self.__dict__[key] = kwargs[key]
 
     def __str__(self):
         '''
@@ -52,7 +51,7 @@ class BaseModel:
         dictionary representation of an instance
         '''
         new_dict = self.__dict__.copy()
-        new_dict['created_at'] = self.__dict__['created_at'].isoformat()
-        new_dict['updated_at'] = self.__dict__['updated_at'].isoformat()
+        new_dict['created_at'] = self.created_at.isoformat()
+        new_dict['updated_at'] = self.updated_at.isoformat()
         new_dict['__class__'] = self.__class__.__name__
         return new_dict
