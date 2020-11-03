@@ -24,15 +24,9 @@ class FileStorage:
         return type(self).__objects
 
     def new(self, obj):
-<<<<<<< HEAD
         """Sets the obj in a key <obj class name>.id"""
         ob_k = obj.__class__.__name__ + '.' + str(obj.id)
         self.__objects[ob_k] = obj
-=======
-        """sets in objects"""
-        key = type(obj).__name__ + '.' + obj.id
-        type(self).__objects[key] = obj
->>>>>>> 509c4826929b96f1b58fb5e263a3ac96872cb248
 
     def save(self):
         """Serializes __objects to the JSON file (path: __file_path)"""
