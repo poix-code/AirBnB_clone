@@ -25,7 +25,8 @@ class FileStorage:
 
     def new(self, obj):
         """sets in objects"""
-        type(self).__objects[type(obj).__name__ + '.' + obj.id] = obj
+        key = type(obj).__name__ + '.' + obj.id
+        type(self).__objects[key] = obj
 
     def save(self):
         """Serializes __objects to the JSON file (path: __file_path)"""
@@ -44,7 +45,7 @@ class FileStorage:
                 type(self).__objects = json.load(read_file)
             for key, value in type(self).__objects.items():
                 obj = eval(type(self).__objects[key]['__class__'])(**value)
-                type(self).__objects[key] = obj
+                type(self).__objects[key] = value
 
         except FileNotFoundError:
             pass
