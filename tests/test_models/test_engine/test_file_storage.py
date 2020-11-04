@@ -35,7 +35,7 @@ class TestFileStorage(unittest.TestCase):
         self.storage.new(self.my_model)
         new_dict = self.storage.all()
         ob_k = type(obj).__name__ + '.' + obj.id
-        self.assertIsInstance(new_dict[key], BaseModel)
+        self.assertIsInstance(new_dict[ob_k], BaseModel)
 
     def test_all(self):
         '''
@@ -57,7 +57,7 @@ class TestFileStorage(unittest.TestCase):
         self.storage.save()
         self.storage.new(self.my_model)
 
-        with open("file.json", 'r') as read_file:
-            data = json.load(read_file)
+        with open("file.json", 'r') as fd:
+            data = json.load(fd)
 
         self.assertIsInstance(data, dict)
