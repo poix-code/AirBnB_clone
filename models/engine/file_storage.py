@@ -41,8 +41,7 @@ class FileStorage:
         try:
             with open(self.__file_path, "r", encoding="utf-8") as read_file:
                 for key, value in temp.items():
-                    value = eval((value["__class__"]) + "(**value)")
-                    self.__objects[key] = value
-
+                    temp_value = models.clases[value["__class__"]](**value)
+                    self.__objects[key] = temp_value
         except FileNotFoundError:
             pass
