@@ -57,7 +57,7 @@ class TestFileStorage(unittest.TestCase):
         self.storage.save()
         self.storage.new(self.my_model)
 
-        with open("file.json", 'r') as fd:
-            data = json.load(fd)
+        with open("file.json", 'r') as read_file:
+            data = json.load(read_file)
 
         self.assertIsInstance(data, dict)
