@@ -33,14 +33,14 @@ class FileStorage:
         new_dict = {}
         for key, value in self.__objects.items():
             new_dict[key] = value.to_dict()
-        with open(self.__file_path, "w", encoding="utf-8") as fd:
-            json.dump(new_dict, fd)
+        with open(self.__file_path, "w", encoding="utf-8") as write_file:
+            write_file.write(json.dump(new_dict))
 
     def reload(self):
         """Deserializes the JSON file to __objects"""
         try:
             with open(self.__file_path, "r", encoding="utf-8") as read_file:
-                for key, value in (json.load(read_file)).items():
+                for key, value in temp.items():
                     value = eval((value["__class__"]) + "(**value)")
                     self.__objects[key] = value
 
