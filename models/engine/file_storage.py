@@ -31,8 +31,8 @@ class FileStorage:
         """Deserializes the JSON file to __objects"""
         try:
             with open(type(self).__file_path, "r") as read_file:
-                for key, obj in (json.load(read_file)).items():
-                    obj = eval((obj["__class__"]) + "(**value)")
-                    type(self).__objects[key] = obj
+                for key, value in (json.load(read_file)).items():
+                    obj = eval((value["__class__"]) + "(**value)")
+                    type(self).__objects[key] = value
         except FileNotFoundError:
             pass
