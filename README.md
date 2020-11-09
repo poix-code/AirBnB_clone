@@ -8,8 +8,8 @@
 
 <ul>
 <li>Create a new object (ex: a new User or a new Place)</li>
-<li>Retrieve an object from a file, a database etc…</li>
-<li>Do operations on objects (count, compute stats, etc…)</li>
+<li>Retrieve an object from a file, a database etc</li>
+<li>Do operations on objects (count, compute stats, etc)</li>
 <li>Update attributes of an object</li>
 <li>Destroy an object</li>
 </ul>
@@ -148,6 +148,111 @@ EOF  all  create  destroy  help  quit  show  update
 </tr>
 </body>
 </table>
+<br>
+<h2>Installation</h2>
+<p>Clone the repository and run console.py</p>
+<pre>
+<code>$ git clone https://github.com/-------/AirBnB_clone.git</code>
+</p>
+<h2>Usage</h2>
+<table>
+<thead>
+<tr>
+<th>
+<strong>Method</strong>
+</th>
+<th>
+<strong>Description</strong>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>create></td>
+<td>Creates object of given class</td>
+</tr>
+<tr>
+<td>show</td>
+<td>Prints the string representation of an instance based on the class name and id</td>
+</tr>
+<tr>
+<td>all</td>
+<td>Prints all string representation of all instances based or not on the class name</td>
+</tr>
+<tr>
+<td>update</td>
+<td>Updates an instance based on the class name and id by adding or updating attribute (save the change into the JSON file)</td>
+</tr>
+<tr>
+<td>destroy</td>
+<td>Deletes an instance based on the class name and id (save the change into the JASON file)</td>
+</tr>
+<tr>
+<td>count</td>
+<td>Retrieve the number of instances of a class</td>
+</tr>
+<tr>
+<td>help</td>
+<td>Prints information about specific command</td>
+</tr>
+<tr>
+<td>quit/ EOF</td>
+</tr>
+</tr>
+</tbody>
+</table>
+<h6>Example No.1</h6>
+<pre>
+<code>
+"  AirBnB_clone git:(feature)  ./console.py
+(hbnb) create User
+bb4f4b81-7757-460b-9263-743c9ea6fef6
+(hbnb) show User bb4f4b81-7757-460b-9263-743c9ea6fef6
+[User] (bb4f4b81-7757-460b-9263-743c9ea6fef6) {'updated_at': datetime.datetime(2020, 11, 13, 17, 7, 45, 492139), 'id': 'bb4f4b81-7757-460b-9263-743c9ea6fef6', 'created_at': datetime.datetime(2020, 11, 13, 17, 7, 45, 492106)}
+(hbnb) all User
+["[User] (bb4f4b81-7757-460b-9263-743c9ea6fef6) {'updated_at': datetime.datetime(2020, 11, 13, 17, 7, 45, 492139), 'id': 'bb4f4b81-7757-460b-9263-743c9ea6fef6', 'created_at': datetime.datetime(2020, 11, 13, 17, 7, 45, 492106)}"]
+(hbnb) update User bb4f4b81-7757-460b-9263-743c9ea6fef6 name Betty
+['User', 'bb4f4b81-7757-460b-9263-743c9ea6fef6', 'name', 'Betty']
+(hbnb) all User
+["[User] (bb4f4b81-7757-460b-9263-743c9ea6fef6) {'updated_at': datetime.datetime(2020, 11, 13, 17, 7, 45, 492139), 'id': 'bb4f4b81-7757-460b-9263-743c9ea6fef6', 'name': 'Betty', 'created_at': datetime.datetime(2020, 11, 13, 17, 7, 45, 492106)}"]
+(hbnb) destroy User bb4f4b81-7757-460b-9263-743c9ea6fef6
+(hbnb) all User
+[]
+(hbnb) show User
+** instance id missing **
+(hbnb)
+
+"
+</code>
+</pre>
+<h6>Example No.2
+<pre>
+<code>
+"  AirBnB_clone git:(feature)  ./console.py
+(hbnb) User.create
+*** Unknown syntax: User.create
+(hbnb) User.create()
+e6ee5344-04ef-454d-84e4-ba6fc613f1b4
+(hbnb) User.all()
+["[User] (e6ee5344-04ef-454d-84e4-ba6fc613f1b4) {'id': 'e6ee5344-04ef-454d-84e4-ba6fc613f1b4', 'updated_at': datetime.datetime(2020, 11, 13, 17, 14, 1, 963404), 'created_at': datetime.datetime(2020, 11, 13, 17, 14, 1, 963373)}"]
+(hbnb) User.show()
+** instance id missing **
+(hbnb) User.show(e6ee5344-04ef-454d-84e4-ba6fc613f1b4)
+[User] (e6ee5344-04ef-454d-84e4-ba6fc613f1b4) {'id': 'e6ee5344-04ef-454d-84e4-ba6fc613f1b4', 'updated_at': datetime.datetime(2020, 11, 13, 17, 14, 1, 963404), 'created_at': datetime.datetime(2020, 11, 13, 17, 14, 1, 963373)}
+(hbnb) User.update("e6ee5344-04ef-454d-84e4-ba6fc613f1b4", "name", "Betty")
+['User', '"e6ee5344-04ef-454d-84e4-ba6fc613f1b4"', '"name"', '"Betty"']
+(hbnb) User.all()
+['[User] (e6ee5344-04ef-454d-84e4-ba6fc613f1b4) {\'"name"\': \'"Betty"\', \'id\': \'e6ee5344-04ef-454d-84e4-ba6fc613f1b4\', \'updated_at\': datetime.datetime(2020, 11, 13, 17, 14, 1, 963404), \'created_at\': datetime.datetime(2020, 11, 13, 17, 14, 1, 963373)}']
+(hbnb) User.destroy(e6ee5344-04ef-454d-84e4-ba6fc613f1b4)
+(hbnb) User.all()
+[]
+(hbnb) quit
+  AirBnB_clone git:(feature)
+
+"
+</code>
+</pre>
+<br>
 <hr>
 <h3>AUTHORS</h3>
 <p>Juan Uribe 1996@holbertonschool.com</p>
