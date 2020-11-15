@@ -1,0 +1,13 @@
+footer.style_footer {
+  background-color: #00FF00;
+  height: 60px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+}
+footer.style_footer > p {
+  font-weight: bold;
+  text-align: center;
+  line-height:30px;
+}
