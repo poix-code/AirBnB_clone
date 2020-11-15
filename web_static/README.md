@@ -23,3 +23,7 @@ The HTML page displays a header, footer and a filters box with a search button.
 ## 5-index.html
 
 Write an HTML page that displays a header, footer and a filters box.
+
+## 6-index.html
+
+The HTML page displays a header, footer and a filters box with dropdown.
