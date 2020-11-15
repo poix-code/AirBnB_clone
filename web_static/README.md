@@ -11,3 +11,7 @@ The HTML page displays a header and a footer by using the style tag in the head 
 ## 2-index.html
 
 The HTML page displays a header and a footer by using CSS files (same as **1-index.html**).
+
+## 3-index.html
+
+The HTML page displays a header and footer by using CSS files (same as **2-index.html**) and inserts a icon in the browser tab.
