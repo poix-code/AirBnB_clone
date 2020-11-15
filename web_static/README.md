@@ -19,3 +19,7 @@ The HTML page displays a header and footer by using CSS files (same as **2-index
 ## 4-index.html
 
 The HTML page displays a header, footer and a filters box with a search button.
+
+## 5-index.html
+
+Write an HTML page that displays a header, footer and a filters box.
